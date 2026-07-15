@@ -1,0 +1,11 @@
+[
+    {
+        "id_cita": "C001",
+        "cedula_paciente": "0934039422",
+        "id_medico": "N001",
+        "fecha": "2026-07-30",
+        "hora": "12:00",
+        "motivo": "Presenta dolor estomacal",
+        "estado": "Pendiente"
+    }
+]

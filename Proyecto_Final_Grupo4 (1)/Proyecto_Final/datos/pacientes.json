@@ -1,0 +1,23 @@
+[
+    {
+        "cedula": "0943715698",
+        "nombre": "karolina sayay",
+        "edad": 20,
+        "telefono": "0999268411",
+        "direccion": "mapz"
+    },
+    {
+        "cedula": "0921478563",
+        "nombre": "Pedro Alcivar",
+        "edad": 33,
+        "telefono": "0921478563",
+        "direccion": "Mps"
+    },
+    {
+        "cedula": "0934039422",
+        "nombre": "Alex Cam",
+        "edad": 33,
+        "telefono": "0999208411",
+        "direccion": "Mapa"
+    }
+]

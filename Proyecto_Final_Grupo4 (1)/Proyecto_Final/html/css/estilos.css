@@ -1,0 +1,332 @@
+/* =====================================================================
+    - Interfaz HTML, documentación y presentación
+   Archivo: html/css/estilos.css
+
+   Tokens de diseño
+   Color:
+     --bg        #F3F5F4  fondo general, papel frío clínico
+     --surface   #FFFFFF  tarjetas y franjas alternas
+     --ink       #16241F  texto principal, verde-negro
+     --ink-soft  #4B5B55  texto secundario
+     --primary   #1F5F52  verde clínico (identidad del sistema)
+     --primary-d #12362F  verde oscuro (hero, footer)
+     --accent    #B5502F  terracota apagado, solo para el estado "Pendiente"
+     --line      #DCE3E0  líneas divisorias finas
+   Tipografía:
+     Display -> "Fraunces"     (títulos, con restricción)
+     Cuerpo  -> "Inter"        (texto de lectura)
+     Datos   -> "JetBrains Mono" (códigos, cifras, etiquetas técnicas)
+   Firma visual:
+     Comprobante de cita tipo "ticket" con borde perforado, en el hero.
+   ===================================================================== */
+
+:root {
+  --bg: #F3F5F4;
+  --surface: #FFFFFF;
+  --ink: #16241F;
+  --ink-soft: #4B5B55;
+  --primary: #1F5F52;
+  --primary-d: #12362F;
+  --accent: #B5502F;
+  --line: #DCE3E0;
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-display); margin: 0; color: var(--ink); }
+
+a { color: inherit; }
+
+code {
+  font-family: var(--font-mono);
+  background: rgba(31, 95, 82, 0.09);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255,255,255,0.06), transparent 40%),
+    linear-gradient(155deg, var(--primary-d), var(--primary) 78%);
+  color: #EFF6F3;
+  padding: 4.5rem 1.5rem 5rem;
+}
+
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #B9D6CC;
+  margin: 0 0 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.12;
+  max-width: 14ch;
+}
+
+.hero-sub {
+  max-width: 46ch;
+  color: #D6E7E1;
+  font-size: 1.05rem;
+  margin-top: -0.8rem;
+}
+
+/* signature element: appointment stub / ticket */
+
+.stub {
+  position: relative;
+  display: flex;
+  background: #FBFAF6;
+  color: var(--ink);
+  border-radius: 14px;
+  max-width: 420px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+
+.stub-main { padding: 1.4rem 1.5rem; flex: 1; }
+
+.stub-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.stub-code {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0.15rem 0 0.9rem;
+}
+
+.stub-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  padding: 0.35rem 0;
+  border-top: 1px dashed var(--line);
+}
+
+.stub-row span:first-child { color: var(--ink-soft); }
+
+.pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background: rgba(181, 80, 47, 0.12);
+  color: var(--accent);
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+}
+
+.stub-tear {
+  width: 0;
+  border-left: 2px dashed var(--line);
+  position: relative;
+}
+
+.stub-tear::before, .stub-tear::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  background: var(--bg);
+  border-radius: 50%;
+}
+.stub-tear::before { top: -8px; }
+.stub-tear::after { bottom: -8px; }
+
+.stub-stamp {
+  width: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  background: var(--primary);
+  color: #EFF6F3;
+}
+
+.stub-stamp span { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; opacity: 0.85; }
+.stub-stamp strong { font-family: var(--font-display); font-size: 1.6rem; }
+
+/* ---------- BAND (datos generales) ---------- */
+
+.band {
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.grid-4 {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.8rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.fact { display: flex; flex-direction: column; gap: 0.3rem; }
+.fact-k { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
+.fact-v { font-size: 0.95rem; font-weight: 500; }
+
+/* ---------- SECTIONS ---------- */
+
+.section {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.section.alt {
+  max-width: none;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.section.alt > * { max-width: 780px; margin-left: auto; margin-right: auto; }
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  margin: 0 0 0.6rem;
+}
+
+.section h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1.1rem; }
+
+.lede { color: var(--ink-soft); font-size: 1.02rem; max-width: 62ch; }
+
+/* team */
+
+.team { margin-top: 2.2rem; border-top: 1px solid var(--line); padding-top: 1.6rem; }
+.team-label { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; color: var(--ink-soft); }
+.team-list { list-style: none; margin: 0.8rem 0 0; padding: 0; display: grid; gap: 0.55rem; }
+.team-list li { font-size: 0.95rem; }
+.team-role {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: rgba(31,95,82,0.09);
+  color: var(--primary);
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+  margin-right: 0.6rem;
+}
+
+/* flow / funcionalidades */
+
+.flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6rem; }
+.flow li { display: flex; gap: 1.2rem; align-items: flex-start; }
+.flow-n {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--primary);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--surface);
+}
+.flow h3 { font-size: 1.05rem; margin-bottom: 0.25rem; }
+.flow p { margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
+
+/* capturas */
+
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+.shot-frame {
+  aspect-ratio: 4 / 3;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+.shot-frame span { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); }
+.shot-frame img { width: 100%; height: 100%; object-fit: contain; border-radius: 9px; }
+figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); text-align: center; }
+
+/* tecnologías */
+
+.tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 1.5rem; }
+.tech {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.tech-name { font-family: var(--font-mono); font-weight: 600; color: var(--primary); }
+.tech-desc { font-size: 0.88rem; color: var(--ink-soft); }
+
+.closing .lede { max-width: 68ch; }
+
+/* footer */
+
+.footer {
+  background: var(--primary-d);
+  color: #B9D6CC;
+  text-align: center;
+  padding: 1.6rem 1.5rem;
+  font-size: 0.82rem;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 720px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .shots { grid-template-columns: 1fr; }
+  .tech-grid { grid-template-columns: 1fr; }
+  .stub { max-width: 100%; }
+}
+
+/* focus visibility */
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

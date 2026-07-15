@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Gestión de Citas Médicas — Grupo 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">UNEMI · Facultad Ciencias e Ingeniería · Software</p>
+    <h1 class="hero-title">Un turno, un paciente,<br>un cuidado a tiempo.</h1>
+    <p class="hero-sub">Sistema de Gestión de Citas Médicas construido en Python, con
+    persistencia en archivos y esta interfaz de apoyo en HTML.</p>
+
+    <div class="stub" role="img" aria-label="Comprobante de cita simulado">
+      <div class="stub-main">
+        <span class="stub-label">Comprobante de cita</span>
+        <span class="stub-code">N.º C-004</span>
+        <div class="stub-row"><span>Paciente</span><span>Por registrar</span></div>
+        <div class="stub-row"><span>Médico</span><span>Por asignar</span></div>
+        <div class="stub-row"><span>Estado</span><span class="pill">Pendiente</span></div>
+      </div>
+      <div class="stub-tear" aria-hidden="true"></div>
+      <div class="stub-stamp">
+        <span>Grupo</span>
+        <strong>04</strong>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="band">
+    <div class="grid-4">
+      <div class="fact"><span class="fact-k">Universidad</span><span class="fact-v">Universidad Estatal de Milagro</span></div>
+      <div class="fact"><span class="fact-k">Facultad</span><span class="fact-v">Ciencias e Ingeniería</span></div>
+      <div class="fact"><span class="fact-k">Asignatura</span><span class="fact-v">Estructura de Datos</span></div>
+      <div class="fact"><span class="fact-k">Docente</span><span class="fact-v">Ing. Jessica Janina Cabezas Quinto</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-eyebrow">Proyecto</p>
+    <h2>Sistema de Gestión de Citas Médicas</h2>
+    <p class="lede">Aplicación de consola desarrollada en Python que permite a un
+    centro de salud registrar pacientes y médicos, y administrar el ciclo
+    completo de una cita: agendarla, consultarla, modificarla o cancelarla,
+    todo con persistencia permanente en archivos.</p>
+
+    <div class="team">
+      <span class="team-label">Integrantes</span>
+      <ul class="team-list">
+        <li><span class="team-role">Karolina Sayay</span> Análisis, clases y registro, Consultas y búsquedas</li>
+        <li><span class="team-role">Fernando Vasco</span> Modificación, eliminación y archivos, Interfaz HTML y documentación</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <p class="section-eyebrow">Objetivo</p>
+    <h2>¿Para qué sirve el sistema?</h2>
+    <p class="lede">Resolver, con las herramientas propias de Estructura de Datos
+    &mdash;variables, condicionales, ciclos, funciones, listas, clases y objetos, y
+    manejo de archivos&mdash; una necesidad real de cualquier consultorio: saber quién
+    tiene cita, con quién, cuándo, y no perder esa información al cerrar el programa.</p>
+
+    <p class="section-eyebrow" style="margin-top:2.5rem;">Descripción del problema</p>
+    <p class="lede">Muchos consultorios pequeños todavía agendan citas en papel o en
+    hojas sueltas: los datos se traspapelan, no hay forma rápida de saber si un
+    horario está libre, y modificar o cancelar una cita implica tachar y volver a
+    escribir. El sistema traslada ese proceso a una aplicación que guarda todo en
+    archivos, permite buscar en segundos y evita registros duplicados o incompletos.</p>
+  </section>
+
+  <section class="section">
+    <p class="section-eyebrow">Recorrido de una cita</p>
+    <h2>Funcionalidades principales</h2>
+
+    <ol class="flow">
+      <li>
+        <span class="flow-n">01</span>
+        <div>
+          <h3>Registrar pacientes y médicos</h3>
+          <p>Se valida cédula, edad, teléfono y demás datos antes de guardarlos.</p>
+        </div>
+      </li>
+      <li>
+        <span class="flow-n">02</span>
+        <div>
+          <h3>Agendar la cita</h3>
+          <p>Relaciona un paciente existente con un médico existente, en fecha y hora válidas.</p>
+        </div>
+      </li>
+      <li>
+        <span class="flow-n">03</span>
+        <div>
+          <h3>Consultar y buscar</h3>
+          <p>Por cédula, nombre, fecha o médico, sobre pacientes, médicos o citas.</p>
+        </div>
+      </li>
+      <li>
+        <span class="flow-n">04</span>
+        <div>
+          <h3>Modificar o cancelar</h3>
+          <p>Cambia fecha, hora, motivo o estado sin perder el historial de la cita.</p>
+        </div>
+      </li>
+      <li>
+        <span class="flow-n">05</span>
+        <div>
+          <h3>Persistir en archivos</h3>
+          <p>Cada operación se guarda de inmediato en <code>datos/*.json</code>.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section alt">
+    <p class="section-eyebrow">Evidencia</p>
+    <h2>Capturas del sistema en Python</h2>
+    <p class="lede">Reemplaza los siguientes marcadores por capturas reales del
+    programa en ejecución (menú principal, registro de una cita y consulta de
+    citas), ubicándolas en <code>html/imagenes/</code>.</p>
+
+    <div class="shots">
+      <figure>
+    <div class="shot-frame"><img src="imagenes/menu_principal.png" alt="Menú principal del sistema"></div>
+    <figcaption>Menú principal del sistema</figcaption>
+  </figure>
+  <figure>
+  <div class="shot-frame"><img src="imagenes/registro_cita.png" alt="Registro de una nueva cita"></div>
+  <figcaption>Registro de una nueva cita</figcaption>
+  </figure>
+  <figure>
+  <div class="shot-frame"><img src="imagenes/listado_citas.png" alt="Consulta de citas registradas"></div>
+  <figcaption>Consulta de citas registradas</figcaption>
+       </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Tecnologías utilizadas</h2>
+    <div class="tech-grid">
+      <div class="tech"><span class="tech-name">Python 3</span><span class="tech-desc">Lógica del sistema y programación orientada a objetos</span></div>
+      <div class="tech"><span class="tech-name">JSON</span><span class="tech-desc">Persistencia de pacientes, médicos y citas</span></div>
+      <div class="tech"><span class="tech-name">HTML5 + CSS3</span><span class="tech-desc">Esta interfaz de presentación</span></div>
+      <div class="tech"><span class="tech-name">Módulos propios</span><span class="tech-desc">clases/ y modulos/, código organizado y reutilizable</span></div>
+    </div>
+  </section>
+
+  <section class="section alt closing">
+    <p class="section-eyebrow">Conclusiones</p>
+    <h2>Lo que deja el proyecto</h2>
+    <p class="lede">El desarrollo del sistema permitió integrar, en un caso de uso
+    concreto, los contenidos vistos durante el semestre: desde estructuras de
+    control básicas hasta clases relacionadas entre sí y archivos como medio de
+    persistencia. El resultado es una aplicación pequeña pero completa, capaz de
+    sostener el trabajo diario de un consultorio sin depender de una base de
+    datos externa.</p>
+  </section>
+
+</main>
+
+</body>
+</html>
